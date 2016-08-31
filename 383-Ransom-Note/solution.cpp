@@ -3,21 +3,30 @@ public:
     bool canConstruct(string ransomNote, string magazine) {
         unordered_map<char, int> map;
         bool res = true;
-        for(int i= 0; i<magazine.length(); i++)
+        int i = 0, j = 0;
+
+        while (i < ransomNote.length() )
         {
-            map[magazine[i]]++;
-        }
-        for(int i= 0; i<ransomNote.length(); i++)
-        {
-            if (map[ransomNote[i]] <= 0)
+            if (0 == map[ransomNote[i]])
+            {
+                while (j < magazine.length() )
+                {
+                    map[magazine[j]]++;
+                    if (magazine[j++] == ransomNote[i])
+                        break;
+                }
+            }
+  
+            if (map[ransomNote[i]] > 0 )
+            {
+                map[ransomNote[i]]--;
+            }
+            else
             {
                 res = false;
                 break;
             }
-            else
-            {
-                map[ransomNote[i]]--;
-            }
+            i++;
         }
         return res;
     }
