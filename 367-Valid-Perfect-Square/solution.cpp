@@ -1,6 +1,16 @@
 class Solution {
 public:
     bool isPerfectSquare(int num) {
+		long long L = 1, R = (num >> 1) + 1;
+		while (L <= R) {
+			long long m = L + ((R - L) >> 1);
+			long long mul = m * m;
+			if (mul == num) return true;
+			else if (mul > num) R = m - 1;
+			else L = m + 1;
+		}
+		return false;
+#if 0
         bool res = false;
 
         int low = 1, high = num;
@@ -24,5 +34,6 @@ public:
         }
 
         return res;
+#endif //0
     }
 };
