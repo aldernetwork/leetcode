@@ -48,12 +48,18 @@ public:
                         {
                             ntop += unit;
                             //break;
+                            res.push_back(ntop);
                             
                         }
-                        unit *= 10;
-                        ttop /= 10;
+                        else
+                        {
+                            
+                            to_bt = 1;
+                        }
+                        //unit *= 10;
+                        //ttop /= 10;
                     }
-                    res.push_back(ntop);
+                    //res.push_back(ntop);
                 }
                 
             }
