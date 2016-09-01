@@ -2,17 +2,26 @@ class Solution {
 public:
     bool isPerfectSquare(int num) {
         bool res = false;
-        if ( 1==num )
-            return true;
+        if ( num <= 1)
+            return num;
             
-        for (int i=2; i*i <= num; i++)
+        int low = 1, high = num;
+        while (low <= high)
         {
-            int q = num / i;
-            
-            if ( 0 == (num - i * q))
+            int mid = low + ((high-low)>>1);
+            int delta = mid * mid - num;
+            if (0 == delta)
             {
-                int q2 = q / i;
-                return ( 0 == (q - i * q2)) && isPerfectSquare(q2);
+                res = true;
+                break;
+            }
+            else if (delta > 0)
+            {
+                high = mid - 1;
+            }
+            else
+            {
+                low = mid + 1;
             }
         }
         return res;
