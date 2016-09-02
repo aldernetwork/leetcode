@@ -5,9 +5,9 @@ public:
         int carry = 0;
         for (auto p = digits.begin(); p != digits.end(); p++)
         {
-            if (0 == *p)
+            if (9 != *p)
             {
-                *p = 1;
+                *p += 1;
                 carry = 0;
                 break;
             }
@@ -19,7 +19,7 @@ public:
         }
         if (carry)
         {
-            digits[digits.size()] = 1;
+            digits.push_back(1);
         }
         reverse(digits.begin(), digits.end());
         return digits;
