@@ -9,7 +9,7 @@
  */
 class Solution {
 public:
-    bool getMax(TreeNode* root, int& vmin, int& vmax) {
+    bool getMax(TreeNode* root, long long& vmin, long long& vmax) {
         bool res;
         if (NULL == root)
         {
@@ -40,7 +40,7 @@ public:
         
     }
     bool isValidBST(TreeNode* root) {
-        int mmin, mmax;
+        long long mmin, mmax;
         return getMax(root, mmin, mmax);
     }
 };
