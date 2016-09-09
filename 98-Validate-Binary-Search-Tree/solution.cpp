@@ -9,38 +9,36 @@
  */
 class Solution {
 public:
-    bool getMax(TreeNode* root, long long& vmin, long long& vmax) {
-        bool res;
+    bool helper(TreeNode* root, long long vmin, long long vmax) {
+        long long val;
+        
         if (NULL == root)
         {
-            vmin = INT_MAX;
-            vmax = INT_MIN;
             return true;
         }
 
-        if (NULL == root->left && NULL == root->right)
-        {
-            vmin = root->val;
-            vmax = root->val;
-            return true;
-        }
-
-
-        bool lres, rres;  
-        long long lmax, rmax, lmin, rmin;
+        val = root->val;
         
-        lres = getMax(root->left, lmin, lmax);      
-        rres = getMax(root->right, rmin, rmax); 
+        if (val <= vmin || root->val >= vmax)
+            return false;
             
-        vmin = min(lmin, root->val);
-        vmax = max(rmax, root->val);
-        
-        res = lres && rres && lmax < root->val && root->val < rmin;
-        return res;
+        if (root->left)
+        {
+            if (!helper(root->left, vmin, val))
+                return false;
+        }
+
+        if (root->right)
+        {
+            if (!helper(root->right, val, vmax))
+                return false;
+        }
+
+        return true;
         
     }
     bool isValidBST(TreeNode* root) {
-        long long mmin, mmax;
-        return getMax(root, mmin, mmax);
+
+        return helper(root, LLONG_MIN, LLONG_MAX);
     }
 };
