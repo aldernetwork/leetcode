@@ -14,6 +14,8 @@ public:
     vector<int> inorderTraversal(TreeNode* root) {
         list<TreeNode *> stack;
         vector<int> res;
+        if (NULL == root)
+            return res;
         stack.push_back(root);
         while (!stack.empty())
         {
