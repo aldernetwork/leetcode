@@ -8,8 +8,26 @@
  */
 class Solution {
 public:
+    int link_size(ListNode* head)
+    {
+        int res = 0;
+        while (head)
+        {
+            head=head->next;
+            res++;
+        }
+        return res;
+    }
     ListNode* rotateRight(ListNode* head, int k) {
         ListNode *p = head, *q, *r = NULL;
+        int len = link_size(head);
+        
+        if (len)
+        {
+            k %= len;
+        }
+        
+        
         for(int i=0; i<k && p; i++)
         {
             if (p->next)
