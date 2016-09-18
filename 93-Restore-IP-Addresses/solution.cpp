@@ -4,7 +4,10 @@ public:
     vector<string> restoreIp(string s, int num) {
         vector<string> res, res1;
         
-        if (1 >= num || s.empty())
+        if (0 == num || s.empty())
+            return res;
+            
+        if (1 == num || s.empty())
         {
             if (s.empty() || atoi(s.c_str()) > 255) 
             {
@@ -25,6 +28,7 @@ public:
             string ip = s.substr(0, sz);
             if (sz == 3 && atoi(ip.c_str()) > 255 || ((sz>1) && (ip[0] == '0')))
                 break;
+                
             res1 = restoreIp(s.substr(sz, s.size()-sz), num-1);
  
             for (int i = 0; i < res1.size(); i++)  
