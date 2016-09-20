@@ -82,8 +82,8 @@ public:
             return res;
             
         vector<vector<int> > arr;
-        for (int i =0; i<l1; i++)
-            for (int j=0; j<l2; j++)
+        for (int i=0; i<1000; i++)
+            for (int j=0; j<1000; j++)
                 arr[i][j] = 0;
                 
         return (dp(0, 0, arr) > 0) ? true : false;
