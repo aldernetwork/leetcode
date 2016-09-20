@@ -8,14 +8,14 @@ public:
 
         string s1, s2, s3;
 
-        if (n1 < str1.szie())
+        if (n1 < str1.size())
             s1 = str1.substr(n1, str1.size()-n1);
 
-        if (n2 < str2.szie())
+        if (n2 < str2.size())
             s2 = str2.substr(n2, str2.size()-n2);
 
 
-        if ((n1+n2) < str3.szie())
+        if ((n1+n2) < str3.size())
             s3 = str3.substr(n1+n2, str3.size()-n1-n2);
         
         int res = -1;
