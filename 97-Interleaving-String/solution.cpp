@@ -1,7 +1,7 @@
 class Solution {
 public:
     string str1, str2, str3;
-    int dp(int n1, int n2, vector<vector<int> > arr) {
+    int dp(int n1, int n2, vector<vector<int> > &arr) {
         
         if (arr[n1][n2] != 0)
             return arr[n1][n2];
