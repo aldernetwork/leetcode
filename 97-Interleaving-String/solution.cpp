@@ -6,9 +6,17 @@ public:
         if (arr[n1][n2] != 0)
             return arr[n1][n2];
 
-        string s1 = str1.substr(n1, str1.size()-n1);
-        string s2 = str2.substr(n2, str2.size()-n2);
-        string s3 = str3.substr(n1+n2, str3.size()-n1-n2);
+        string s1, s2, s3;
+
+        if (n1 < str1.szie())
+            s1 = str1.substr(n1, str1.size()-n1);
+
+        if (n2 < str2.szie())
+            s2 = str2.substr(n2, str2.size()-n2);
+
+
+        if ((n1+n2) < str3.szie())
+            s3 = str3.substr(n1+n2, str3.size()-n1-n2);
         
         int res = -1;
             
